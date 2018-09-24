@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 Class ArticleController {
@@ -15,9 +16,11 @@ Class ArticleController {
 	}
 
 	/**
-	 * @Route("/news/why-asteroids-taste-like-bacon")
+	 * @Route("/news/{slug}")
 	 */
-	public function show() {
-		return new Response('Future space to one space article!');
+	public function show($slug) {
+		return new Response(sprintf('Future space to one space article: "%s"',
+			$slug
+		));
 	}
 }
